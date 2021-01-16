@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  store_name: MyString
+  area: MyString
+  pay: false
+  contact_phone: 1
+  description: MyText
+  fool: false
+
+two:
+  title: MyString
+  store_name: MyString
+  area: MyString
+  pay: false
+  contact_phone: 1
+  description: MyText
+  fool: false

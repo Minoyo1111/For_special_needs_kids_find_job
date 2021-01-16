@@ -1,0 +1,22 @@
+<h1>工作列表</h1>
+
+<%= link_to "刊登職缺", new_job_path %>
+
+<table>
+  <thead>
+    <tr>
+      <td>職缺名稱</td>
+      <td>店名</td>
+      <td>聯絡電話</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @jobs.each do |job| %>
+    <tr>
+      <td><%= job.title %></td>
+      <td><%= job.store_name %></td>
+      <td><%= job.contact_phone %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
