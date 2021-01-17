@@ -1,24 +1,6 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### 綜職科學生跟一般學生組成不同，是由一群智能障礙的學生為了將來出社會，訓練其生活工作技能及社會技巧的科系，
+### 在高二和高三各有由特教教師帶領以課程為主的實習，以及一週2-3天的職場實習，
+### 希望能做個網站，媒合願意提供學生真實職場體驗的實習店家，也讓學生能夠練習如何撰寫簡歷
+### 讓他們畢業後，能真正的融入社會
