@@ -15,7 +15,7 @@ class JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
     if @job.save
-      redirect_to jobs_path, notice: "新增成功"
+      redirect_to jobs_path, notice: "職缺已新增"
     else
       render :new
     end
@@ -26,7 +26,7 @@ class JobsController < ApplicationController
 
   def update
     if @job.update(job_params)
-      redirect_to jobs_path, notice: "更新成功"
+      redirect_to jobs_path, notice: "職缺已更新"
     else
       render :edit
     end
