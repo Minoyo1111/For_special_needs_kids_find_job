@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   namespace :admin, path: 'neednottoknow' do
     resources :jobs
   end
+  resources :jobs
 end

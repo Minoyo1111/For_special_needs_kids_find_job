@@ -1,6 +1,6 @@
 <h1>工作列表</h1>
-<%= link_to "刊登職缺", new_admin_job_path %>
-<table>
+<%= link_to "刊登職缺", new_job_path %>
+<table class="table">
   <thead>
     <tr>
       <td>職缺名稱</td>
@@ -24,8 +24,8 @@
       <td><%= job.lunch %></td>
       <td><%= job.pay %></td>
       <td><%= job.practice_type %></td>
-      <td><%= link_to "修改",  edit_admin_job_path(job) %></td>
-      <td><%= link_to "刪除", admin_job_path(job), method: "delete", data: { confirm: "確認刪除" } %></td>
+      <td><%= link_to "修改",  edit_job_path(job) %></td>
+      <td><%= link_to "刪除", job_path(job), method: "delete", data: { confirm: "確認刪除" } %></td>
     </tr>
     <% end %>
   </tbody>

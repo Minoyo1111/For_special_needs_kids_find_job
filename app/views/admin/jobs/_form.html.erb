@@ -1,0 +1,36 @@
+<%= simple_form_for(job) do |f| %>
+<div>
+  <%= f.label :title, "職缺名稱" %>
+  <%= f.text_field :title%>
+</div>
+
+<div>
+  <%= f.label :store_name, "店名" %>
+  <%= f.text_field :store_name %>
+</div>
+
+<div>
+  <%= f.label :contact_phone, "聯絡電話" %>
+  <%= f.telephone_field :contact_phone %>
+</div>
+
+<div>
+  <%= f.label :area, "地區" %>
+  <%= f.text_field :area %>
+</div>
+
+<div>
+  <%= f.label :description, "工作內容" %>
+  <%= f.text_area :description %>
+</div>
+<div>
+  <%= f.label :lunch, "是否供餐" %>
+  <%= f.check_box :lunch %>
+</div>
+<div>
+  <%= f.label :pay, "是否支薪" %>
+  <%= f.check_box :pay %>
+</div>
+<%= f.submit %>
+
+<% end %>
