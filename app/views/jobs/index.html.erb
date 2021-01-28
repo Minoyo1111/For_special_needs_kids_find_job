@@ -1,11 +1,12 @@
 <h1>工作列表</h1>
-<%= link_to "刊登職缺", new_job_path %>
-<table>
+<%= link_to "新增職缺", new_job_path %>
+<table class="table">
   <thead>
     <tr>
       <td>職缺名稱</td>
       <td>店名</td>
       <td>聯絡電話</td>
+      <td>聯絡信箱</td>
       <td>地區</td>
       <td>工作內容</td>
       <td>是否供餐</td>
@@ -16,15 +17,16 @@
   <tbody>
     <% @jobs.each do |job| %>
     <tr>
-      <td><%= job.title %></td>
+      <td><%= link_to(job.title, job_path(job)) %></td>
       <td><%= job.store_name %></td>
       <td><%= job.contact_phone %></td>
+      <td><%= job.contact_email %></td>
       <td><%= job.area %></td>
       <td><%= job.description %></td>
       <td><%= job.lunch %></td>
       <td><%= job.pay %></td>
       <td><%= job.practice_type %></td>
-      <td><%= link_to "修改", edit_job_path(job) %></td>
+      <td><%= link_to "修改",  edit_job_path(job) %></td>
       <td><%= link_to "刪除", job_path(job), method: "delete", data: { confirm: "確認刪除" } %></td>
     </tr>
     <% end %>

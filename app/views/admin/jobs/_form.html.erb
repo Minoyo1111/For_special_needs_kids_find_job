@@ -1,4 +1,4 @@
-<%= simple_form_for(job) do |f| %>
+<%= simple_form_for [:admin, @job] do |f| %>
 <div>
   <%= f.label :title, "職缺名稱" %>
   <%= f.text_field :title%>

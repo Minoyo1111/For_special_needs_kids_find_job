@@ -1,11 +1,11 @@
 class JobsController < ApplicationController
-  before_action :find_job, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
+  before_action :find_job, only: [:show, :edit, :update, :destroy]
   def index
-    @jobs = Job.all
+    @jobs = Job.where(:is_hidden => false).order("created_at DESC")
   end
 
   def show
-    @job = Job.find(params[:id])
   end
 
   def new
@@ -39,7 +39,7 @@ class JobsController < ApplicationController
 
   private
     def job_params
-      params.require(:job).permit(:title, :store_name, :contact_phone, :area, :description, :lunch, :pay)
+      params.require(:job).permit(:title, :store_name, :contact_phone, :area, :description, :lunch, :pay, :contact_email, :is_hidden)
     end
 
     def find_job

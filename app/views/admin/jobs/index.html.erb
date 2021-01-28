@@ -1,0 +1,25 @@
+<%= link_to("新增職缺", new_admin_job_path, class:"btn btn-default") %>
+<h1>工作列表</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <td>職缺名稱</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @jobs.each do |job| %>
+    <tr>
+      <td>
+      <% if job.is_hidden %>
+          (職缺隱藏)
+      <% else %>
+          (職缺開放)
+      <% end %>
+      <%= link_to(job.title, admin_job_path(job)) %></td>
+      <td><%= link_to "修改",  edit_admin_job_path(job) %></td>
+      <td><%= link_to "刪除", admin_job_path(job), method: "delete", data: { confirm: "確認刪除" } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
