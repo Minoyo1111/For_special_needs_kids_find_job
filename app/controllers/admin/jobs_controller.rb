@@ -43,5 +43,11 @@ class Admin::JobsController < ApplicationController
   def job_params
     params.require(:job).permit(:title, :store_name, :contact_phone, :area, :description, :lunch, :pay)
   end
+  def require_is_admin
+    if current_user.email != 'dd@dd.dd'
+      flash[:alert] = 'You are not admin'
+      redirect_to root_path
+    end
+  end
   
 end
