@@ -1,4 +1,4 @@
-<%= simple_form_for(job) do |f| %>
+<%= simple_form_for [:admin, @job] do |f| %>
 <div>
   <%= f.label :title, "職缺名稱" %>
   <%= f.text_field :title%>
@@ -12,6 +12,11 @@
 <div>
   <%= f.label :contact_phone, "聯絡電話" %>
   <%= f.telephone_field :contact_phone %>
+</div>
+
+<div>
+  <%= f.label :contact_email, "信箱" %>
+  <%= f.telephone_field :contact_email %>
 </div>
 
 <div>
@@ -31,6 +36,7 @@
   <%= f.label :pay, "是否支薪" %>
   <%= f.check_box :pay %>
 </div>
+<%= f.input :is_hidden %>
 <%= f.submit %>
 
 <% end %>

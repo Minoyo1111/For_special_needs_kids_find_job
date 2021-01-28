@@ -1,6 +1,9 @@
 class Admin::JobsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
+  before_action :find_job, only: [:show, :edit, :update, :destroy]
+  before_action :require_is_admin
+
   def show
-    @job = Job.find_by(params[:id])
   end
 
   def index 
@@ -12,7 +15,7 @@ class Admin::JobsController < ApplicationController
   end
 
   def create
-    @job = Job.new(params[:id])
+    @job = Job.new(job_params)
     if @job.save
       redirect_to admin_jobs_path
     else
@@ -21,11 +24,10 @@ class Admin::JobsController < ApplicationController
   end
 
   def edit
-    @job = Job.find_by(params[:id])
   end
 
   def update
-    @job = Job.find_by(params[:id])
+
     if @job.update(job_params)
       redirect_to admin_jobs_path
     else
@@ -34,18 +36,20 @@ class Admin::JobsController < ApplicationController
   end
 
   def destroy
-    @job = Job.find_by(params[:id])
     @job.destroy if @job
     redirect_to admin_jobs_path
   end
 
   private
   def job_params
-    params.require(:job).permit(:title, :store_name, :contact_phone, :area, :description, :lunch, :pay)
+    params.require(:job).permit(:title, :store_name, :contact_phone, :area, :description, :lunch, :pay, :contact_email, :is_hidden)
+  end
+  def find_job
+    @job = Job.find_by(id: params[:id])
   end
   def require_is_admin
-    if current_user.email != 'dd@dd.dd'
-      flash[:alert] = 'You are not admin'
+    if !current_user.admin?
+      flash[:alert] = '抱歉，你沒有權限進來'
       redirect_to root_path
     end
   end

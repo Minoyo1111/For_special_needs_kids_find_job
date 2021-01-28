@@ -15,6 +15,11 @@
 </div>
 
 <div>
+  <%= f.label :contact_email, "信箱" %>
+  <%= f.telephone_field :contact_email %>
+</div>
+
+<div>
   <%= f.label :area, "地區" %>
   <%= f.text_field :area %>
 </div>
@@ -31,6 +36,7 @@
   <%= f.label :pay, "是否支薪" %>
   <%= f.check_box :pay %>
 </div>
+<%= f.input :is_hidden %>
 <%= f.submit %>
 
 <% end %>
